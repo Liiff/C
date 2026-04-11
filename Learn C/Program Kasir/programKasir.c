@@ -62,6 +62,7 @@ int main(){
 
         printf("Apakah ada barang yang ingin ditambah? (y/t): "); scanf(" %c", &ulang);
         ulang = toupper(ulang);
+        puts("");
 
     } while (ulang == 'Y');
 
@@ -69,6 +70,20 @@ int main(){
         totalHarga += Keranjang[i].subTotal;
     };
 
-    printf("Total harga = %d", totalHarga);
+    puts("\n## STRUK PEMBELIAN ##");
+    for (int i = 0; i < pilihan; i++) {
+
+        printf("Pembelian -%d", i+1);
+
+        for (int j = 0; j < 5; j++){
+            if (menu[j].id == Keranjang[i].id){
+                printf("\nBarang       : %s", menu[j].nama);
+                printf("\nJumlah Beli  : %d", Keranjang[i].qty);
+                printf("\nSub Total    : Rp %d\n\n", Keranjang[i].subTotal);
+            }
+        }
+    }
+
+    printf("Total harga  : Rp %d", totalHarga);
 
 }
