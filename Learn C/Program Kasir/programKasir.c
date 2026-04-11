@@ -86,4 +86,5 @@ int main(){
 
     printf("Total harga  : Rp %d", totalHarga);
 
+    return 0;
 }
