@@ -33,12 +33,16 @@ section .data
 
 section .bss
   pilihan resb 5
+  order_name resb 45
 
 
 section .text
   global _start
 
 _start:
+
+  mov edi, order_name
+
   mov eax, 4
   mov ebx, 1
   mov ecx, header
@@ -89,7 +93,7 @@ loop_compare_order:
 cetak_order:
   dec ecx
   mov edx, [arr_name + ecx * 4]
-  jmp cetak_pesan
+  jmp copy_string
 
 input_salah:
   mov eax, 4
@@ -102,9 +106,20 @@ input_salah:
 cetak_pesan:
   mov eax, 4
   mov ebx, 1
-  mov ecx, edx
+  mov ecx, order_name
   mov edx, 45
   int 0x80
+  jmp end
+
+copy_string:
+  mov al, [edx]
+  cmp al, 0
+  je cetak_pesan 
+
+  mov [edi], al
+  inc edx
+  inc edi
+  jmp copy_string
 
 end:
   mov eax, 1                                ; System Exit
