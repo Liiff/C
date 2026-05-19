@@ -28,7 +28,7 @@ section .data
   arr_price dw 28000, 35000, 32000, 30000, 6000, 18000, 22000
   arr_name dd food1, food2, food3, food4, drink1, drink2, drink3
 
-  inputSalah db "Input salah", 0
+  inputSalah db "Menu kosong, harap masukkan kembali", 0
   len_input_salah equ $ - inputSalah
 
 section .bss
