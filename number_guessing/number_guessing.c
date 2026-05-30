@@ -8,7 +8,7 @@ void numberGuess() {
 
   srand(time(NULL));
 
-  num = rand() % 100;
+  num = rand() % 80;
 
   printf("Number between 1 and %d\n", 100);
 
